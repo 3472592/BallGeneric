@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="Ball.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ball"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <ResourceDictionary Source="StandardStyles.xaml"/>
+    </Page.Resources>
+
+    <Grid Grid.Row="1" Margin="120,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,40,0">
+            <TextBlock Text="Trajectory" Style="{StaticResource GroupHeaderTextStyle}" Margin="0,0,0,20"/>
+            <TextBox Text="{Binding Trajectory, Mode=TwoWay}" Margin="0,0,0,20"/>
+            <TextBlock Text="Distance" Style="{StaticResource GroupHeaderTextStyle}" Margin="0,0,0,20"/>
+            <TextBox Text="{Binding Distance, Mode=TwoWay}" Margin="0,0,0,20"/>
+            <Button Content="Play ball!" Click="Button_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Pitcher says" Style="{StaticResource GroupHeaderTextStyle}" Margin="0,0,0,20"/>
+            <ListView ItemsSource="{Binding PitcherSays}" Height="150"/>
+            <TextBlock Text="Fan says" Style="{StaticResource GroupHeaderTextStyle}" Margin="0,0,0,20"/>
+            <ListView ItemsSource="{Binding FanSays}" Height="150"/>
+        </StackPanel>
+    </Grid>
+</Page>
